@@ -1,0 +1,18 @@
+<%- include('navbar') -%>
+<link rel="stylesheet" href="/css/profile.css">
+<title>Portfolio Manager</title>
+<body>
+<div class="white-box">
+    <div class = "container">
+        <p style="font-size: 48px;">My Profile</p>
+        <br>
+        <p style="font-size: 20px;">Username : <%= username %></p>
+        <p style="font-size: 20px;">Name : <%= firstname %> <%= lastname %></p>
+        <p style="font-size: 20px;">Current holdings : <%= Number(current).toLocaleString() %> 
+            share<% if (current != 1) { %>s<% } %></p>
+        <p style="font-size: 20px;">Total Invested : $ <%= Number(invested.toFixed(2)).toLocaleString() %></p>
+        <p style="font-size: 20px;">Total Returns : $ <%= Number(returns.toFixed(2)).toLocaleString() %></p>
+    </div>
+</div>
+    </body>
+

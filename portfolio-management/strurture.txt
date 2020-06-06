@@ -1,0 +1,8 @@
+navigation two parts:
+
+1. login,register
+2. profile,watchlist,stocklist,stock,update profile,logout
+
+
+
+

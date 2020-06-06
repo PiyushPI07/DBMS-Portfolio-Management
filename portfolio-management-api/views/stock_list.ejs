@@ -1,0 +1,41 @@
+<%- include('navbar') -%>
+<link rel="stylesheet" href="/css/table.css">
+<style>
+        button{
+            background-color: #4CAF50;
+            padding: 8px 20px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            margin-bottom : 5%;
+            margin-left : 30%;
+            border-radius: 20px;
+            border: 1px solid black;
+            width: 50%;
+            color: black;}
+
+        button:hover{
+            background-color: #00cc44;
+        }
+</style>
+<title>
+     Portfolio
+</title>
+<body>
+<h1>List of Stocks</h1>
+<div id = "link">
+  <table class = "container">
+        <tbody>
+        <% data.forEach(function(item) { %>
+          <tr>
+            <td><%= item.ShareName %></td>
+            <td><h1><a href="/share/<%= item.Symbol %>">
+            <button>View</button></a></td>
+          </tr>
+        <% }); %>
+        </tbody>
+  </table>
+</div>
+
+</body>
+

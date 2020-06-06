@@ -1,0 +1,76 @@
+.stock-white-box {
+	width: 70%;
+	height: 82%;
+	margin-top: 80px;
+	margin-left: auto;
+	margin-right: auto;
+	background: rgba(255, 255, 255, 0.9);
+	padding: 50px;
+	padding-bottom: 80px;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 10px;
+}
+
+body {
+	font-family: "Open Sans", sans-serif;
+	font-weight: 300;
+	background-color: #1f2739;
+}
+
+.container {
+	margin-top: 5%;
+	margin-left: 10%;
+	padding-bottom: 50px;
+}
+
+.watchlist {
+	background-color: #ff8c00;
+	/* margin-left: 2%; */
+	width: 10%;
+	cursor: pointer;
+	border-radius: 10%;
+	padding: 5px 1px 5px 1px;
+	margin-left: 5px;
+	font-size: 20px;
+}
+
+.watchlist:hover {
+	background-color: #ff8c00;
+}
+
+.buy-form {
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+.buy-form input {
+	float: left;
+	margin-right: 0px;
+}
+
+.sell-form {
+	/* clear: both; */
+	/* float: left; */
+	display: inline-block;
+}
+
+.sell-form input {
+	float: left;
+	margin-right: 0px;
+	/* display: inline; */
+}
+
+.sell-form input[type="submit"],
+.buy-form input[type="submit"] {
+	width: 20%;
+	margin-left: 10px;
+	border-radius: 10%;
+	padding: 3px 0px 3px 0px;
+	font-size: 15px;
+}

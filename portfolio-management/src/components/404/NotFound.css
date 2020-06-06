@@ -1,0 +1,21 @@
+.error {
+	background: #003300;
+	font-family: ubuntu;
+	color: #ffffff;
+	padding-top: 50px;
+	padding-bottom: 710px;
+	margin-bottom: 0px;
+}
+
+.error h1 {
+	font-size: 48px;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	text-align: center;
+}
+
+.error p {
+	color: white;
+	font-size: 25px;
+	text-align: center;
+}

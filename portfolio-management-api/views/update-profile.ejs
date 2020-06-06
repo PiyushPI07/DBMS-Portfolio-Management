@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="/css/signup.css">
+    <title>Portfolio Manager</title>
+    <%- include('navbar') -%>
+    <body>
+        <form action="/save" method="POST" style="border:1px solid #ccc">
+            <div class="container">
+                <center>
+                    <h1>Update Profile</h1>
+                </center>
+                <hr>
+                <center>
+                    <% if (message!="") {%>
+                        <div class="alert">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                            <%= message %>
+                        </div>
+                    <%}%>
+
+                    <br>
+                    <label for="username"><b>Username</b></label>
+                    <br>
+                    <input type="input" placeholder="Enter your username" name="username", value="<%= username %>">
+                    <br><br>
+                    <label for="firstname"><b>First Name</b></label>
+                    <br>
+                    <input type="input" placeholder="Enter your first name" name="firstname", value="<%= firstname %>">
+                    <br><br>
+                    <label for="lastname"><b>Last Name</b></label>
+                    <br>
+                    <input type="input" placeholder="Enter your last name" name="lastname", value="<%= lastname %>">
+
+                    <br><br>
+                    <label for="old_password" style="margin-right: 21%;"><b>Old Password</b></label>
+                    <br>
+                    <input type="password" placeholder="Enter Old Password" name="old_password">
+                    <br><br>
+                    <label for="new_password" style="margin-right: 21%;"><b>New Password</b></label>
+                    <br>
+                    <input type="password" placeholder="Enter New Password" name="new_password">
+                    <br><br>
+                    <label for="confirm_password" style="margin-right: 18%;"><b>Confirm Password</b></label>
+                    <br>
+                    <input type="password" placeholder="Repeat the password" name="confirm_password">
+                </center>
+                <br><br>
+                <input type="submit" name="save" value="Save">
+            </div>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Portfolio Manager</title>
+        <link rel="stylesheet" href="/css/login.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+
+    <body>
+        <center>
+            <h1>Welcome to our Portfolio Manager</h1>
+            <h2>Login</h2>
+        </center>
+
+        <form action="/login" method="POST">
+            <div class="imgcontainer">
+                <img src="img_avatar.png" alt="Avatar" class="avatar" style="width: 100px; height: 100px;">
+            </div>
+
+            <div class="container">
+                    <% if (message!="") {%>
+                        <div class="alert">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                            <%= message %>
+                        </div>
+                    <%}%>
+                <p for="username" style="margin-left: 35%;"><b>Username</b></p>
+                <input type="input" placeholder="Enter Username" name="username", value="<%= username%>">
+
+                <p for="password" style="margin-left: 35%;"><b>Password</b></p>
+                <input type="password" placeholder="Enter Password" name="password">
+                <br><br>
+                <input type="submit" name="login" value="Login">
+                <p style="text-align: center;"><a href="/signup">Not a member? Sign Up</a></p>
+            </div>
+        </form>
+    </body>
+</html>

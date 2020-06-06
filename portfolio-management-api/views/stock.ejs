@@ -1,0 +1,118 @@
+<%- include('navbar') -%>
+<link rel="stylesheet" href="/css/stock.css" />
+<html>
+	<head>
+		<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+		<title>
+			<%= name[0].ShareName %>
+		</title>
+	</head>
+	<body>
+		<div class="white-box">
+			<center><p style="font-size: 40px;"><%= name[0].ShareName %></p></center>
+			<div class="container">
+				<div style="width: 20%; float: left;">
+					<p style="font-size: 20px;">Symbol : <%= symbol %></p>
+					<p style="font-size: 15px;">
+						Current price : $ <% for(x in data["Time Series (1min)"]) { %> <%
+						var price = data["Time Series (1min)"][x]["4. close"]; %> <%=
+						Number((1.0*price).toFixed(2)).toLocaleString() %> <% break; %> <% }
+						%>
+					</p>
+					<p style="font-size: 15px;">
+						Current holdings : <%= Number(current).toLocaleString() %> share<%
+						if (current != 1) { %>s<% } %>
+					</p>
+					<p style="font-size: 15px;">
+						Net Worth : $ <%=
+						Number((current*price).toFixed(2)).toLocaleString() %>
+					</p>
+					<p style="font-size: 15px;">
+						Total Invested : $ <%= Number(invested.toFixed(2)).toLocaleString()
+						%>
+					</p>
+					<p style="font-size: 15px;">
+						Total Returns : $ <%= Number(returns.toFixed(2)).toLocaleString() %>
+					</p>
+					<p style="font-size: 15px;">
+						Total Profit/Loss (Including Net Worth) : $ <%=
+						Number((current*price + returns -
+						invested).toFixed(2)).toLocaleString() %>
+					</p>
+					<% if (inWatchList == false) { %>
+					<form action="/add" method="POST">
+						<p>
+							Add to Watch List<button
+								class="watchlist"
+								name="symbol"
+								value="<%= symbol %>"
+							>
+								+
+							</button>
+						</p>
+					</form>
+					<% } %> <% if (inWatchList == true) { %>
+					<form action="/remove" method="POST">
+						<p>
+							Remove from Watch List<button
+								class="watchlist"
+								name="symbol"
+								value="<%= symbol %>"
+							>
+								-
+							</button>
+						</p>
+					</form>
+					<% } %>
+					<form action="/buy" method="POST">
+						<input
+							style="width: 44%;"
+							type="number"
+							name="quantity"
+							min="1"
+							value="0"
+						/>&nbsp;
+						<input type="hidden" name="symbol" value="<%= symbol %>" />
+						<input type="hidden" name="price" value="<%= price %>" />
+						<input
+							style="background-color: green;"
+							type="submit"
+							name="buy"
+							value="Buy"
+						/>
+					</form>
+					<form action="/sell" method="POST">
+						<input
+							style="width: 44%;"
+							type="number"
+							name="quantity"
+							min="1"
+							max="<%= current %>"
+							value="0"
+						/>&nbsp;
+						<input type="hidden" name="symbol" value="<%= symbol %>" />
+						<input type="hidden" name="price" value="<%= price %>" />
+						<input
+							style="background-color: #cc0000;"
+							type="submit"
+							name="sell"
+							value="Sell"
+						/>
+					</form>
+				</div>
+				<div style="width: 80%; float: right;">
+					<div id="tester" style="width: 450px; height: 250px;"></div>
+				</div>
+			</div>
+		</div>
+
+		<script>
+			var X = [];
+			     <% xdata.forEach(function(item) {  %>
+			     X.push("<%= item %>");
+			     <% }); %>
+			     var Y = [<%= y %>];
+			     Plotly.newPlot('tester', [{x: X, y: Y, type: 'scatter'}]);
+		</script>
+	</body>
+</html>
